@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 32px 28px;
+    border-left: 4px solid #af09f1;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0 0 4px 0;
+}
+
+header h2 {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 16px 0;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin: 24px 0 10px 0;
+}
+
+.contact p {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.contact address {
+    font-style: normal;
+    margin: 0 0 4px 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #17e6f5;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #999999;
+}

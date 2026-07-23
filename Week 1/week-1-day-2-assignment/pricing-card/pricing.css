@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+}
+
+.page-title {
+    text-align: center;
+    margin: 0 0 40px 0;
+    font-size: 2rem;
+}
+
+.pricing-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.card {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 40px 24px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin: 0 0 12px 0;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+}
+
+.price span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.card ul {
+    list-style: none;
+    margin: 0 0 28px 0;
+    padding: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.card ul li {
+    padding: 8px 2px;
+    font-size: 1rem;
+}
+
+.card button {
+    background-color: #72dee6;
+    border: none;
+    padding: 12px 4px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.25);
+}
+
+.card button:hover {
+    background-color: #1d5ed8;
+}
+
+.pro-card {
+    background-color: #fdeeff;
+    border: 2px solid #f1def0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(243, 209, 241, 0.74);
+}
+
+.pro-card .price {
+    color: #b91dd8;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px 14px;
+    border-radius: 999px;
+}
+
+@media (min-width: 769px) {
+    body {
+        padding: 60px 20px;
+    }
+
+    .pricing-section {
+        flex-direction: row;
+    }
+
+    .card {
+        flex: 1 1 0;
+        max-width: 350px;
+    }
+
+    .pro-card {
+        transform: scale(1.05);
+    }
+}
