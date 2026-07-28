@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amon Kimutai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<input type="checkbox" id="theme-toggle" class="theme-checkbox" aria-label="Toggle dark and light theme">
+
+<div class="page">
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">Amo</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <label for="theme-toggle" class="theme-switch" tabindex="0"></label>
+        <label for="nav-toggle" class="hamburger" tabindex="0">
+          <span></span><span></span><span></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero">
+      <div class="container">
+        <p class="eyebrow">Nairobi, Kenya</p>
+        <h1>Hi, I am Amon Kimutai.</h1>
+        <p>AI Engineer & Software Developer building intelligent, scalable, and secure digital solutions that transform ideas into innovative products and real-world impact.</p>
+        <div class="btn-row">
+          <a href="#projects" class="btn btn-primary">View projects</a>
+          <a href="#contact" class="btn btn-outline">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="avatar-box"><span>A</span></div>
+
+        <div class="about-text">
+          <p class="eyebrow">About</p>
+          <p><strong>My background is rooted in data analyics</strong> , where I developed a passion for uncovering patterns, solving complex problems, and transforming raw data into meaningful insights. Working with large datasets using Python and SQL, I built analytical solutions that supported performance optimization, forecasting, and data-driven decision-making.</p>
+          <p>Over time, that analytical foundation evolved into a broader interest in artificial intelligence and software engineering. Today, I build AI powered applications, develop modern web platforms, and create scalable cloud-native solutions that combine intelligent automation with thoughtful software design. I'm particularly interested in applying machine learning and large language models to build products that solve real-world challenges.</p>
+          <div class="fact-list">
+            <div><strong>Software</strong>Python, JavaScript, web dev</div>
+            <div><strong>Cloud</strong>Kubernetes, containers</div>
+            <div><strong>Based in</strong>Nairobi, Kenya</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Skills</p>
+          <h2>What I bring, and what I'm building</h2>
+          <p>A straightforward read on where I stand today.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-group">
+            <h3>Technical skills</h3>
+
+            <div class="skill">
+              <div class="skill-label"><span>HTML</span><span class="pct">90%</span></div>
+              <div class="track"><div class="fill" style="--target:90%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>CSS</span><span class="pct">75%</span></div>
+              <div class="track"><div class="fill" style="--target:75%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>JavaScript</span><span class="pct">20%</span></div>
+              <div class="track"><div class="fill" style="--target:20%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Git</span><span class="pct">40%</span></div>
+              <div class="track"><div class="fill" style="--target:40%"></div></div>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Soft skills</h3>
+
+            <div class="skill">
+              <div class="skill-label"><span>Communication</span><span class="pct">85%</span></div>
+              <div class="track"><div class="fill" style="--target:85%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Problem Solving</span><span class="pct">70%</span></div>
+              <div class="track"><div class="fill" style="--target:70%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Teamwork</span><span class="pct">80%</span></div>
+              <div class="track"><div class="fill" style="--target:80%"></div></div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-label"><span>Time Management</span><span class="pct">65%</span></div>
+              <div class="track"><div class="fill" style="--target:65%"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Projects</p>
+          <h2>Recent builds</h2>
+          <p>A mix of infrastructure-minded software: AI tooling, cloud deployments, and full-stack apps.</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <h3>ConversationManager</h3>
+            <p>An LLM-powered chatbot built on Together AI's OpenAI-compatible SDK, with persona management, token counting, and JSON-based conversation persistence.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Together AI</span>
+              <span class="tag">Pydantic</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>K8s Production Stack</h3>
+            <p>Three production-style apps on Kubernetes: a stateless API gateway, a stateful WordPress/PostgreSQL deployment, and a Prometheus + Grafana + Loki observability stack.</p>
+            <div class="tag-row">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Prometheus</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>StyleHub Nairobi</h3>
+            <p>A clothes shop management system for a Westlands-based retailer — inventory, point of sale, and sales history, built with React and Express, priced in Ksh with M-Pesa support.</p>
+            <div class="tag-row">
+              <span class="tag">React</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">M-Pesa</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's talk shop</h2>
+          <p>Open to conversations about software, infrastructure, or anything in between. Reach out — I'll get back to you.</p>
+          <div class="contact-links">
+            <a href="mailto:hello@example.com" class="btn btn-primary">Email me</a>
+            <a href="https://github.com/amokim" class="btn btn-outline">GitHub</a>
+            <a href="https://linkedin.com/in/your-profile" class="btn btn-outline">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built by Amon Kimutai · Nairobi, Kenya</p>
+  </footer>
+
+</div>
+</body>
+</html>
