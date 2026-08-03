@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Shopping List</h1>
+      <div class="input-row">
+        <input type="text" id="item-name-input" placeholder="Item name" />
+        <input type="number" id="item-qty-input" value="1" min="1" />
+        <button id="add-item-btn">Add Item</button>
+      </div>
+      <div class="error-message" id="error-message"></div>
+      <div class="remaining-count" id="remaining-count">0 items remaining</div>
+      <ul id="shopping-list"></ul>
+    </main>
+    <script src="shopping-list.js"></script>
+  </body>
+</html>
