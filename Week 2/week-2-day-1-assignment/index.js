@@ -1,5 +1,6 @@
 // Task 1 Solutions
-fizzBuzz = n => {
+const fizzBuzz = n => {
+    const results = [];
     for (let i = 1; i <= n; i++) {
         let output = i;
         if (i % 3 === 0 && i % 5 === 0) {
@@ -11,38 +12,37 @@ fizzBuzz = n => {
         else if (i % 5 === 0) {
             output = "Buzz"
         }
-        console.log(output)
+    results.push(output);
     }
-        
+    return results.join(", ");
 };
 
-reverseString = str => {
-    console.log(str.split("").reverse().join(""))
+const reverseString = str => {
+    return (str.split("").reverse().join(""));
 };
 
 
-isPalindrome = str => {
-    reversedStr = str.split("").reverse().join("").toLowerCase()
+const isPalindrome = str => {
+    const reversedStr = str.split("").reverse().join("").toLowerCase()
     if (str.toLowerCase() === reversedStr) {
-        console.log("true")
+        return true;
     }
     else {
-        console.log("false")
+        return false;
     }
+};
 
-}
-
-findLargest = arr => {
+const findLargest = arr => {
     let max = arr[0];
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] > max) {
             max = arr[i];
         }
     }
-    console.log(max);
+    return max;
 };
 
-countVowels = str => {
+const countVowels = str => {
     const vowels = ["a", "e", "i", "o", "u"];
     const strArray = str.split("");
     let vowelCount = 0;
@@ -51,7 +51,7 @@ countVowels = str => {
             vowelCount += 1;
         }
     }
-    console.log(vowelCount);
+    return vowelCount;
 };
 
 // Task 2 Solutions
@@ -77,22 +77,22 @@ const counties = {
         area: 2543, // km²
         borders: ["Nairobi", "Machakos", "Murang'a", "Nyandarua", "Nakuru", "Kajiado"]
     }
+}
+
+const displayCounty = county => {
+    return `${counties[county].name} County | Capital: ${counties[county].capital} | Population: ${counties[county].population.toLocaleString()} | Area: ${counties[county].area} km²`;
 };
 
-displayCounty = county => {
-    console.log(`${counties[county].name} County | Capital: ${counties[county].capital} | Population: ${counties[county].population.toLocaleString()} | Area: ${counties[county].area} km²`)
-}
 
+const formatPopulation = num => {
+    return num.toLocaleString();
+};
 
-formatPopulation = num => {
-    console.log(num.toLocaleString())
-}
-
-bordersString = county => {
+const bordersString = county => {
     const allBordersButLast = counties[county].borders.slice(0, -1).join(", ");
     const lastBorder = counties[county].borders.slice(-1);
-    console.log(`${counties[county].name} borders ${allBordersButLast}, and ${lastBorder} `)
-}
+    return `${counties[county].name} borders ${allBordersButLast}, and ${lastBorder}`;
+};
 
 
 // Task 3
@@ -109,22 +109,22 @@ const routes = [
     { name: "Route 14 - Westlands", fare: 30, stops: ["CBD", "University Way", "Museum Hill", "Westlands"] }
   ];
 
-cheapestRoute = routes => {
+const cheapestRoute = routes => {
     const cheapest = routes.reduce((max, route) => route.fare < max.fare ? route : max);
-    console.log(cheapest);
-}
+    return `Cheapest: ${cheapest.name} at KES ${cheapest.fare}`;
+};
 
-routeThroughStop = (routes, stop) => {
+const routeThroughStop = (routes, stop) => {
     const foundRoutes = [];
     for (const route of routes) {
         if (route.stops.includes(stop)) {
             foundRoutes.push(route.name);
         }
     }
-    console.log(`Routes through ${stop}: ${foundRoutes.join(", ")}`);
+    return `Routes through ${stop}: ${foundRoutes.join(", ")}`;
 };
 
-journeyFare = (routes, routeNames) => {
+const journeyFare = (routes, routeNames) => {
     let totalFare = 0;
     for (const route of routes) {
         if (routeNames.includes(route.name)) {
@@ -133,6 +133,19 @@ journeyFare = (routes, routeNames) => {
     }
     const origin = routeNames[0].split(" - ")[1];
     const destination = routeNames[routeNames.length - 1].split(" - ")[1];
-    console.log(`Journey Fare (${origin} -> ${destination}): ${totalFare}`);
+    return `Journey Fare (${origin} -> ${destination}): KES ${totalFare}`;
 };
 
+
+//Evaluating the functions if they work as intended
+console.log(fizzBuzz(15));
+console.log(reverseString('nairobi'));
+console.log(isPalindrome('Racecar'));
+console.log(findLargest([10, 45, 2, 67, 23]));
+console.log(countVowels('JavaScript'));
+console.log(displayCounty('Mombasa'));
+console.log(formatPopulation(439073));
+console.log(bordersString('Nairobi'));
+console.log(cheapestRoute(routes));
+console.log(routeThroughStop(routes, 'Westlands'));
+console.log(journeyFare(routes, ["Route 14 - Westlands", "Route 58 - Kikuyu"]));
