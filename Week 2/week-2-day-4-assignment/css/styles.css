@@ -1,0 +1,212 @@
+/* Shared base styles*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #1f2430;
+  background: #f4f5f7;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.page h1 {
+  margin-top: 0;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #3b5bfd;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover {
+  background: #2c47d6;
+}
+
+/* Modal System css*/
+.modal-trigger-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-box h2 {
+  margin-top: 0;
+}
+
+.modal-box p {
+  color: #4a5063;
+  line-height: 1.5;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #4a5063;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Form Validation css*/
+.form-field {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px 36px 10px 12px;
+  border: 2px solid #d7dae0;
+  border-radius: 8px;
+  transition: border-color 0.15s ease;
+}
+
+.input-wrap input:focus {
+  outline: none;
+  border-color: #3b5bfd;
+}
+
+.input-wrap input.valid {
+  border-color: #2fb344;
+}
+
+.input-wrap input.invalid {
+  border-color: #e0393e;
+}
+
+.field-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.field-icon.valid {
+  color: #2fb344;
+}
+
+.field-icon.invalid {
+  color: #e0393e;
+}
+
+.field-error {
+  margin: 6px 0 0;
+  min-height: 1.1em;
+  font-size: 0.85rem;
+  color: #e0393e;
+}
+
+#submit-btn:disabled {
+  background: #b7bfd6;
+  cursor: not-allowed;
+}
+
+/* Drag and Drop css*/
+.priority-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.priority-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #d7dae0;
+  border-radius: 8px;
+  cursor: grab;
+  transition: opacity 0.15s ease;
+}
+
+.priority-item.dragging {
+  opacity: 0.4;
+}
+
+.priority-number {
+  font-weight: 700;
+  color: #3b5bfd;
+  min-width: 1.5em;
+}
+
+.priority-item.drag-over-top {
+  border-top: 3px solid #3b5bfd;
+}
+
+.priority-item.drag-over-bottom {
+  border-bottom: 3px solid #3b5bfd;
+}

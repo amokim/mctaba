@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <main class="page">
+        <h1>Create an Account</h1>
+
+        <form id="registration-form" novalidate>
+            <div class="form-field">
+                <label for="name">Name</label>
+                <div class="input-wrap">
+                    <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="off">
+                    <span class="field-icon"></span>
+                </div>
+                <p class="field-error"></p>
+            </div>
+
+            <div class="form-field">
+                <label for="email">Email</label>
+                <div class="input-wrap">
+                    <input type="text" id="email" name="email" placeholder="jane@example.com" autocomplete="off">
+                    <span class="field-icon"></span>
+                </div>
+                <p class="field-error"></p>
+            </div>
+
+            <div class="form-field">
+                <label for="phone">Phone</label>
+                <div class="input-wrap">
+                    <input type="tel" id="phone" name="phone" placeholder="07XXXXXXXX" maxlength="10" autocomplete="off">
+                    <span class="field-icon"></span>
+                </div>
+                <p class="field-error"></p>
+            </div>
+
+            <div class="form-field">
+                <label for="password">Password</label>
+                <div class="input-wrap">
+                    <input type="password" id="password" name="password" placeholder="At least 8 characters" autocomplete="off">
+                    <span class="field-icon"></span>
+                </div>
+                <p class="field-error"></p>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn" disabled>Register</button>
+        </form>
+    </main>
+
+    <script src="form.js"></script>
+</body>
+</html>

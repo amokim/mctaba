@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <main class="page">
+        <h1>Modal System</h1>
+        <p>Click a button below to open its modal.</p>
+
+        <div class="modal-trigger-group">
+            <button type="button" class="btn" data-modal-target="modal-about">Learn More</button>
+            <button type="button" class="btn" data-modal-target="modal-pricing">Learn More</button>
+            <button type="button" class="btn" data-modal-target="modal-support">Learn More</button>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modal-about">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-about-title">
+            <button type="button" class="modal-close" aria-label="Close" title="Close">&times;</button>
+            <h2 id="modal-about-title">About Our Service</h2>
+            <p>We help small teams ship products faster by handling the repetitive parts of the workflow, so you can focus on the work that actually needs a human.</p>
+            <button type="button" class="btn modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-pricing">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-pricing-title">
+            <button type="button" class="modal-close" aria-label="Close" title="Close">&times;</button>
+            <h2 id="modal-pricing-title">Pricing Plans</h2>
+            <p>Choose from Starter, Pro, and Team plans. Every plan includes a 14-day free trial, no credit card required, and you can switch or cancel at any time.</p>
+            <button type="button" class="btn modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-support">
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-support-title">
+            <button type="button" class="modal-close" aria-label="Close" title="Close">&times;</button>
+            <h2 id="modal-support-title">Contact Support</h2>
+            <p>Our support team is available Monday through Friday, 8am to 6pm. Reach out any time and we'll typically respond within a few hours.</p>
+            <button type="button" class="btn modal-close-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="modal.js"></script>
+</body>
+</html>
