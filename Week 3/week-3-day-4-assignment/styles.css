@@ -201,6 +201,14 @@ body {
   background: var(--accent);
 }
 
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--blue);
+  color: #aab8c9;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
 
 
 /* ===== Responsive ===== */
