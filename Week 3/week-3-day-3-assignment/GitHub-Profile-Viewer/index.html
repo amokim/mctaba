@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <h1>GitHub Profile Viewer</h1>
+        <p class="subtitle">Enter a username to view their GitHub profile</p>
+
+        <div class="search-box">
+            <input type="text" id="username-input" placeholder="e.g. torvalds">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <div class="cache-bar">
+            <span id="cache-status" class="cache-status" hidden></span>
+            <button id="clear-cache-btn" class="secondary-btn" type="button">Clear Cache</button>
+        </div>
+
+        <div id="loading" class="loading" hidden>Fetching profile...</div>
+        <div id="error" class="error" hidden></div>
+
+        <!-- Populated by displayProfile() in script.js -->
+        <div id="profile-section" class="profile-section" hidden></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
