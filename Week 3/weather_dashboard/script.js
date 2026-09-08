@@ -18,14 +18,32 @@ const windEl = document.getElementById('wind');
 const feelsLikeEl = document.getElementById('feels-like');
 const forecastCardsEl = document.getElementById('forecast-cards');
 
+// writing helper functions
+function showLoading() {
+    loadingEl.classList.remove('hidden');
+    weatherDisplay.classList.add('hidden');
+    errorMessageEl.classList.add('hidden');
+}
+
+function hideLoading() {
+    loadingEl.classList.add('hidden');
+}
+
+function showError(message) {
+    errorTextEl.textContent = message;
+    errorMessageEl.classList.remove('hidden');
+    weatherDisplay.classList.add('hidden');
+}
+
+function showWeather() {
+    weatherDisplay.classList.remove('hidden');
+    errorMessageEl.classList.add('hidden');
+}
+
 // Build the search function
 async function searchWeather(city) {
     // Show loading, hide weather display, hide error
-    weatherDisplay.hidden = true;
-    errorMessageEl.hidden = true;
-
-    loadingEl.hidden = false;
-
+    showLoading()
     // Disable the search button
     searchBtn.disabled = true;
     try {
@@ -63,15 +81,14 @@ async function searchWeather(city) {
         const forecastData = await forecastResponse.json();
         // Parse and display forecast
         displayForecast(forecastData)
-        weatherDisplay.hidden = false;
+        showWeather();
         // Save to search history
     } catch (error) {
         // Show error message
-        errorMessageEl.hidden = false;
-        errorTextEl.textContent = error.message;
+        showError()
     } finally {
         // Hide loading
-        loadingEl.hidden = true;
+        hideLoading();
         // Re-enable search button
         searchBtn.disabled = false;
     }
