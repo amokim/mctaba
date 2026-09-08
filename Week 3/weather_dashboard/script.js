@@ -83,6 +83,7 @@ async function searchWeather(city) {
         displayForecast(forecastData)
         showWeather();
         // Save to search history
+        saveToHistory(city);
     } catch (error) {
         // Show error message
         showError()
@@ -167,3 +168,42 @@ cityInput.addEventListener('keydown', function(event) {
         }
     }
 });
+
+function saveToHistory(city) {
+    let history = JSON.parse(localStorage.getItem('weather-history')) || [];
+
+    // Remove city if it already exists (to avoid duplicates)
+    history = history.filter(function(item) {
+        return item.toLowercase() !== city.toLowercase();
+    });
+
+    // Add the new city to the beginning
+    history.unshift(city);
+
+    // Keep only the last 5
+    if (history.length > 5) {
+        history = history.slice(0, 5);
+    }
+
+    localStorage.setItem('weather-history', JSON.stringify(history));
+    renderSearchHistory();
+}
+
+function renderSearchHistory() {
+    const history = JSON.parse(localStorage.getItem('weather-history')) || [];
+    searchHistoryContainer.innerHTML = '';
+
+    history.forEach(function(city) {
+        const btn = document.createElement('button');
+        btn.className = 'history-btn';
+        btn.textContent = city;
+        btn.addEventListener('click', function() {
+            cityInput.value = city;
+            searchWeather(city);
+        });
+        searchHistoryContainer.appendChild(btn);
+    });
+}
+
+// Load search history when the page opens
+renderSearchHistory()
