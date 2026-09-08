@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Weather Dashboard</h1>
+            <div id="unit-toggle" class="unit-toggle" aria-label="Temperature unit">
+                <button type="button" data-unit="C" class="active">°C</button>
+                <button type="button" data-unit="F">°F</button>
+            </div>
+        </header>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Enter city name..."
+                    autocomplete="off"
+                >
+                <button id="search-btn">Search</button>
+            </div>
+            <div class="history-row">
+                <div id="search-history" class="search-history"></div>
+                <button id="clear-history-btn" class="clear-history-btn hidden">Clear history</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div id="error-message" class="error-message hidden">
+            <p id="error-text"></p>
+        </div>
+
+        <div id="weather-display" class="weather-display hidden">
+            <div class="current-weather">
+                <div class="current-main">
+                    <h2 id="city-name"></h2>
+                    <div class="temp-section">
+                        <img id="weather-icon" src="" alt="Weather icon">
+                        <span id="temperature" class="temperature"></span>
+                    </div>
+                    <p id="description" class="description"></p>
+                </div>
+                <div class="current-details">
+                    <div class="detail">
+                        <span class="detail-label">Humidity</span>
+                        <span id="humidity" class="detail-value"></span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Wind</span>
+                        <span id="wind" class="detail-value"></span>
+                    </div>
+                    <div class="detail">
+                        <span class="detail-label">Feels Like</span>
+                        <span id="feels-like" class="detail-value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div id="forecast-cards" class="forecast-cards"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
