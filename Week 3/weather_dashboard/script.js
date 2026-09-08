@@ -53,11 +53,12 @@ async function searchWeather(city) {
         )
 
         // Check response status
+        if (weatherResponse.status === 404) {
+            throw new Error('City not found');
+        }
+
         if (!weatherResponse.ok) {
-            if (weatherResponse.status === 404) {
-                throw new Error(`${city} not found. Please enter a valid city name!`);
-            }
-            throw new Error(`API error: ${weatherResponse.status}`)
+            throw new Error('API Error');
         }
 
         // Parse JSON
@@ -70,11 +71,12 @@ async function searchWeather(city) {
         )
 
         // Check response status
+        if (forecastResponse.status === 404) {
+            throw new Error('City not found');
+        }
+
         if (!forecastResponse.ok) {
-            if (forecastResponse.status === 404) {
-                throw new Error(`${city} not found. Please enter a valid city name!`);
-            }
-            throw new Error(`API error: ${forecastResponse.status}`)
+            throw new Error('API Error');
         }
 
         // Parse JSON
@@ -85,8 +87,14 @@ async function searchWeather(city) {
         // Save to search history
         saveToHistory(city);
     } catch (error) {
-        // Show error message
-        showError()
+        // Show error message (fetch throws a TypeError when it cannot connect)
+        if (error instanceof TypeError) {
+            showError('Unable to connect. Check your internet connection and try again.');
+        } else if (error.message === 'City not found') {
+            showError('City not found. Please check the spelling and try again.');
+        } else {
+            showError('Something went wrong. Please try again later.');
+        }
     } finally {
         // Hide loading
         hideLoading();
@@ -150,7 +158,7 @@ function filterDailyForecast(list) {
 
     // Remove today (we already show current weather) and take next 5 days
     const allDays = Object.values(days);
-    return allDays.slice(1, 6);
+    return allDays.slice(0, 5);
 }
 
 searchBtn.addEventListener('click', function() {
@@ -174,7 +182,7 @@ function saveToHistory(city) {
 
     // Remove city if it already exists (to avoid duplicates)
     history = history.filter(function(item) {
-        return item.toLowercase() !== city.toLowercase();
+        return item.toLowerCase() !== city.toLowerCase();
     });
 
     // Add the new city to the beginning
