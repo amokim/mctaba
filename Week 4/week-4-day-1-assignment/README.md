@@ -109,18 +109,6 @@ All sample data lives at the top of `src/App.jsx`:
 
 Avatars come from <https://i.pravatar.cc>, so the page needs an internet connection to show them.
 
-## Previous deployments
-
-Earlier projects in this repository were published with **GitHub Pages**, for example the three Week 3 Day 3 apps:
-
-- Currency Converter: <https://amokim.github.io/mctaba/Week%203/week-3-day-3-assignment/Currency-converter/>
-- GitHub Profile Viewer: <https://amokim.github.io/mctaba/Week%203/week-3-day-3-assignment/GitHub-Profile-Viewer/>
-- News Headline Aggregator: <https://amokim.github.io/mctaba/Week%203/week-3-day-3-assignment/New-Headline-Aggregator/>
-
-Those apps were plain HTML, CSS, and JavaScript, so GitHub Pages could serve the source files directly from the `main` branch with no build step. The URLs are long because each project sits in a subfolder of the shared repository.
-
-This project is different: it uses JSX and must be compiled by Vite before a browser can run it. Serving the raw source from GitHub Pages will not work. Vercel runs the build for you on every push, which is why it is the recommended host from Week 4 onward.
-
 ## Deploying to Vercel
 
 ### Option A: Vercel dashboard (recommended)

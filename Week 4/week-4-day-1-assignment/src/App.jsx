@@ -1,8 +1,6 @@
 import NavBar from "./components/NavBar";
 import AlertBox from "./components/AlertBox";
-import PriceTag from "./components/PriceTag";
-import ProfileCard from "./components/ProfileCard"; 
-import StarRating from "./components/StarRating";
+import ProfileCard from "./components/ProfileCard";
 import ProductCard from "./components/ProductCard";
 import TeamPage from "./components/TeamPage";
 import "./App.css"
@@ -142,7 +140,7 @@ function App() {
       <section className="alerts">
         <AlertBox type="success" message="🎉 Elden Ring added to your library. Enjoy the Lands Between!"/>
         <AlertBox type="warning" message="⚡ Flash Sale: up to 60% off RPGs — ends in 2 hours!"/>
-        <AlertBox type="error" message="Payment declined for order #KE-88213 — please update your card." children={<button className="alert-box__action">Retry Payment</button>} />
+        <AlertBox type="error" message="Payment declined for order #KE-88213 — please update your card." children={<button className="alert-box__action" onClick={() => console.log("Retrying payment for order #KE-88213")}>Retry Payment</button>} />
       </section>
       <section id="products">
         <h2>Featured Products</h2>
@@ -165,7 +163,7 @@ function App() {
         <TeamPage
           members={supportTeam}
           title="Meet the GameShop Team"
-          memberLabel="The amazing people running GameShop"
+          memberLabel="amazing people running GameShop"
         />
       </section>
     </div>
