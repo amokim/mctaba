@@ -55,13 +55,6 @@ function formatTemp(celsius) {
     return `${Math.round(celsius)}°C`;
 }
 
-function formatWind(metersPerSecond) {
-    if (currentUnit === 'F') {
-        return `${(metersPerSecond * 2.237).toFixed(1)} mph`;
-    }
-    return `${metersPerSecond} m/s`;
-}
-
 function updateUnitToggle() {
     unitToggle.querySelectorAll('button').forEach(function(btn) {
         btn.classList.toggle('active', btn.dataset.unit === currentUnit);
