@@ -1,0 +1,99 @@
+/* Page layout: each <section> in App.jsx is a distinct card */
+
+#root {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: 100svh;
+}
+
+#root > section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-top: 6px solid var(--section-accent, #94a3b8);
+  border-radius: 16px;
+  padding: 8px 24px 32px;
+  box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.15);
+}
+
+/* Section label shown above each card's content */
+#root > section::before {
+  content: var(--section-label);
+  display: inline-block;
+  margin-top: 16px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--section-accent);
+  background: var(--section-tint);
+}
+
+/* Per-section accent colours */
+#counter {
+  --section-accent: #0ea5e9;
+  --section-tint: #e0f2fe;
+  --section-label: "Section 1 · Counter";
+}
+
+#todoapp {
+  --section-accent: #10b981;
+  --section-tint: #d1fae5;
+  --section-label: "Section 2 · Todo list";
+}
+
+#signupform {
+  --section-accent: #8b5cf6;
+  --section-tint: #ede9fe;
+  --section-label: "Section 3 · Signup form";
+}
+
+/* Consistent headings inside every section */
+#root > section h1,
+#root > section h2 {
+  color: #111827;
+  margin: 16px 0 12px;
+}
+
+#root > section h1 {
+  font-size: 32px;
+  letter-spacing: -0.5px;
+}
+
+#root > section h2 {
+  font-size: 22px;
+}
+
+/* Two columns on wide screens, stacked on narrow */
+@media (min-width: 900px) {
+  #root {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+  }
+
+  #signupform {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  #root > section {
+    padding: 8px 16px 24px;
+    border-radius: 12px;
+  }
+}
