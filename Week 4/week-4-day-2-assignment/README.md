@@ -2,7 +2,7 @@
 
 A single-page React app with three small stateful components: a step counter with undo, a todo list saved to the browser, and a three-step signup form. Each component sits in its own card on the page. The card layout is in `src/App.css`, and each component styles itself with inline styles.
 
-Live demo: _add your Vercel URL here after the first deploy_
+Live demo: https://mctaba-git-main-kim-4259.vercel.app/
 
 ## What is on the page
 

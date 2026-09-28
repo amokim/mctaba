@@ -2,7 +2,7 @@
 
 A single-page React app with three components that load live data from public APIs: a random joke, a GitHub user search, and a crypto price tracker. Each one handles loading and error states, and uses `useEffect` for fetching, timers and cleanup. Styles are in `src/App.css` and follow the system light or dark theme.
 
-Live demo: https://week4day1task.vercel.app/
+Live demo: https://mctaba-hszt.vercel.app/
 
 ## What is on the page
 
