@@ -2,7 +2,7 @@
 
 A React app for searching films, series and games using the [OMDb API](https://www.omdbapi.com/). Search for a title, narrow the results by type or year, page through them, open a title to see its full details, and save favorites that stay after a page reload. Searches live in the URL, so any results page can be bookmarked or shared. The app has a light and dark theme and works on phones and desktops.
 
-Live demo: _add your Vercel URL here after the first deploy_
+Live demo: https://mctaba-movie-search-app-njs5.vercel.app/
 
 ![Search results for "batman"](docs/screenshots/02-search-results.jpg)
 
