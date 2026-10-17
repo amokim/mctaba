@@ -24,7 +24,12 @@ app.get('/', (req, res) => {
         message: "Welcome to week5 API",
         version: "1.0.0",
         endpoints: {
-            cities: "/api/cities",
+            "GET /": "API info (this page)",
+            "GET /api/cities": "List cities. Optional query: ?county=Nairobi&minPopulation=500000",
+            "GET /api/cities/:id": "Get a single city by ID",
+            "POST /api/cities": "Create a city. Body: { name, county, population }",
+            "PATCH /api/cities/:id": "Update any of name, county, population",
+            "DELETE /api/cities/:id": "Delete a city"
         }
     })
 })
@@ -36,6 +41,13 @@ app.get('/api/cities', (req, res) => {
     if (req.query.county) {
         const county = req.query.county.toLowerCase();
         cityResults = cityResults.filter(p => p.county.toLowerCase() === county);
+        
+        if (cityResults.length === 0) {
+            return res.status(404).json({
+                success: false,
+                error: `Invalid county name`
+            });
+        }
     }
 
     if (req.query.minPopulation) {

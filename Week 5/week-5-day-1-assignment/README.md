@@ -29,7 +29,7 @@ The server runs at `http://localhost:3000`.
 
 | Parameter | Example | Behaviour |
 | --- | --- | --- |
-| `county` | `?county=nairobi` | Exact match on county, ignoring upper and lower case |
+| `county` | `?county=nairobi` | Exact match on county, ignoring upper and lower case. A county with no cities returns 404 |
 | `minPopulation` | `?minPopulation=500000` | Cities with at least this population. A value that isn't a number returns 400 |
 
 The two filters can be combined: `?county=nairobi&minPopulation=1000000`.
@@ -47,7 +47,7 @@ Every response includes a boolean `success` field. Failed requests also include 
 | Status | When |
 | --- | --- |
 | 400 | Missing or invalid fields, or a `minPopulation` that isn't a number |
-| 404 | No city has the given ID |
+| 404 | No city has the given ID, or no city is in the given `county` |
 
 ## Testing with curl
 
@@ -64,7 +64,12 @@ curl http://localhost:3000/
   "message": "Welcome to week5 API",
   "version": "1.0.0",
   "endpoints": {
-    "cities": "/api/cities"
+    "GET /": "API info (this page)",
+    "GET /api/cities": "List cities. Optional query: ?county=Nairobi&minPopulation=500000",
+    "GET /api/cities/:id": "Get a single city by ID",
+    "POST /api/cities": "Create a city. Body: { name, county, population }",
+    "PATCH /api/cities/:id": "Update any of name, county, population",
+    "DELETE /api/cities/:id": "Delete a city"
   }
 }
 ```
@@ -113,6 +118,19 @@ curl 'http://localhost:3000/api/cities?county=nairobi'
 ```
 
 ![GET /api/cities?county=nairobi](screenshots/03-filter-county.png)
+
+A county with no cities returns **404**:
+
+```bash
+curl 'http://localhost:3000/api/cities?county=narnia'
+```
+
+```json
+{
+  "success": false,
+  "error": "Invalid county name"
+}
+```
 
 ### 4. Filter by minimum population
 
