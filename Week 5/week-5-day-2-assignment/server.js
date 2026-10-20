@@ -31,8 +31,19 @@ app.get('/', (req, res) => {
         message: "Welcome to week5 API",
         version: "1.0.0",
         endpoints: {
-            cities: "/api/cities",
-        }
+            "GET /": "API info (this page)",
+            "GET /api/health": "Health check",
+            "GET /api/cities": "List cities. Optional query: ?county=Nairobi&minPopulation=500000",
+            "GET /api/cities/:id": "Get a single city by ID",
+            "POST /api/cities": "Create a city (requires x-api-key header). Body: { name, county, population }",
+            "DELETE /api/cities/:id": "Delete a city (requires x-api-key header)",
+            "POST /api/auth/login": "Log in. Body: { email, password }"
+        },
+        authentication: {
+            header: "x-api-key",
+            protectedRoutes: ["POST /api/cities", "DELETE /api/cities/:id"]
+        },
+        rateLimit: "10 requests per 60 seconds per IP"
     })
 })
 
