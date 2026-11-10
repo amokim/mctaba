@@ -5,6 +5,12 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Only deploy when the Week 1-3 web pages (or this workflow) change
+    paths:
+      - "Week 1/**"
+      - "Week 2/**"
+      - "Week 3/**"
+      - ".github/workflows/static.yml"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
