@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrderStatus {
+    PENDING
+    PROCESSING
+    SHIPPED
+    DELIVERED
+    CANCELED
+}
+
+enum userRole {
+    USER
+    ADMIN
+    MODERATOR
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  bio       String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  posts     Post[]
+  comments  Comment[]
+  orders    Order[]
+  role      userRole   @default(USER)
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  author    User      @relation(fields: [authorId], references: [id])
+  authorId  Int
+  comments  Comment[]
+  tags      Tag[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts Post[]
+}
+
+model Product {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  price       Decimal     @db.Decimal(10, 2)
+  stock       Int         @default(0)
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  category    Category    @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  orderItems  OrderItem[]
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  products    Product[]
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  totalAmount Decimal
+  status      OrderStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  customer    User        @relation(fields: [userId], references: [id])
+  userId      Int
+  orderItems  OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  quantity  Int
+  price     Decimal
+  order     Order   @relation(fields: [orderId], references: [id])
+  orderId   Int
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+}
+
+model Department {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  code     String    @unique
+  teachers Teacher[]
+  courses  Course[]
+}
+
+model Teacher {
+  id           Int        @id @default(autoincrement())
+  name         String
+  email        String     @unique
+  hireDate     DateTime?
+  department   Department @relation(fields: [departmentId], references: [id])
+  departmentId Int
+  courses      Course[]
+}
+
+model Course {
+  id           Int          @id @default(autoincrement())
+  name         String
+  code         String       @unique
+  credits      Int          @default(3)
+  department   Department   @relation(fields: [departmentId], references: [id])
+  departmentId Int
+  teacher      Teacher      @relation(fields: [teacherId], references: [id])
+  teacherId    Int
+  enrollments  Enrollment[]
+}
+
+model Student {
+  id          Int          @id @default(autoincrement())
+  name        String
+  email       String       @unique
+  age         Int?
+  town        String?
+  enrolledAt  DateTime     @default(now())
+  enrollments Enrollment[]
+}
+
+model Enrollment {
+  id           Int      @id @default(autoincrement())
+  grade        Int?
+  enrolledDate DateTime @default(now())
+  student      Student  @relation(fields: [studentId], references: [id])
+  studentId    Int
+  course       Course   @relation(fields: [courseId], references: [id])
+  courseId     Int
+
+  @@unique([studentId, courseId])
+}
